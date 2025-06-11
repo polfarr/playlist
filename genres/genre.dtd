@@ -1,0 +1,9 @@
+<!DOCTYPE genre [
+    <!ELEMENT genre (name, origin)>
+    <!ATTLIST genre id ID #REQUIRED>
+
+    <!ELEMENT name (#PCDATA)>
+    
+    <!ELEMENT origin EMPTY>
+    <!ATTLIST origin country CDATA #REQUIRED>
+]>

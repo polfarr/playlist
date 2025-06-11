@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE album SYSTEM "album.dtd">
+<album id="3">
+	<title>Night Visions</title>
+	<cover src="nightvisions.jpg" />
+	<artists>
+		<artist id="1">Imagine Dragons</artist>
+	</artists>
+	<songs>
+		<song id="13">Radioactive</song>
+		<song id="14">Tiptoe</song>
+		<song id="15">It's Time</song>
+		<song id="16">Demons</song>
+        <song id="17">On Top of the World</song>
+        <song id="18">Amsterdam</song>
+        <song id="19">Hear Me</song>
+        <song id="20">Every Night</song>
+        <song id="21">Nothing Left to Say / Rocks</song>
+        <song id="22">Bleeding Out</song>
+        <song id="23">Underdog</song>
+	</songs>
+</album>

@@ -1,0 +1,17 @@
+<!DOCTYPE artist [
+    <!ELEMENT artist (name, nationality, birth, albums)>
+    <!ATTLIST artist id ID #REQUIRED>
+
+    <!ELEMENT name (#PCDATA)>
+    
+    <!ELEMENT nationality EMPTY>
+    <!ATTLIST nationality country CDATA #REQUIRED>
+
+    <!ELEMENT birth EMPTY>
+    <!ATTLIST birth date CDATA #REQUIRED>
+
+    <!ELEMENT albums (album*)>
+
+    <!ELEMENT album EMPTY>
+    <!ATTLIST album id IDREF #REQUIRED>
+]>

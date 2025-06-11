@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<artist id="1">
+	<name>Imagine Dragons</name>
+	<nationality country="eua" />
+	<birth date="2008" />
+	<albums>
+		<album id="1" />
+		<album id="3" />
+	</albums>
+	
+</artist>

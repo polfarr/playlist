@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<artist id="2">
+	<name>Gorillaz</name>
+	<nationality country="eua" />
+	<birth date="1998" />
+	<albums>
+		<album id="2" />
+	</albums>
+</artist>

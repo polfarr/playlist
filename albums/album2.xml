@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE album SYSTEM "album.dtd">
+<album id="2">
+	<title>Cracker Island</title>
+	<cover src="crackerisland.jpg" />
+	<artists>
+		<artist id="2">Gorillaz</artist>
+	</artists>
+	<songs>
+		<song id="5">Cracker Island (feat. Thundercat)</song>
+		<song id="6">The Tired Influencer</song>
+		<song id="7">Tarantula</song>
+		<song id="8">Silent Running (feat. Adeleye Omotayo)</song>
+        <song id="9">New Gold (feat. Tame Impala & Bootie Brown)</song>
+        <song id="10">Baby Queen</song>
+        <song id="11">Skinny Ape</song>
+        <song id="12">Possession Island (feat. Beck)</song>
+	</songs>
+</album>

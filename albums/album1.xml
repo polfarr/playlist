@@ -1,0 +1,16 @@
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE album SYSTEM "album.dtd">
+<album id="1">
+	<title>LOOM</title>
+	<cover src="loom.jpg" />
+	<artists>
+		<artist id="1">Imagine Dragons</artist>
+	</artists>
+	<songs>
+		<song id="1">Eyes Closed</song>
+		<song id="2">Nice to Meet You</song>
+		<song id="3">Wake Up</song>
+		<song id="4">Take Me to the Beach</song>
+	</songs>
+</album>
