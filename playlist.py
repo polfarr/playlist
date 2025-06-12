@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import os
 from bs4 import BeautifulSoup
 
 # Función para mostrar el menú principal y obtener la opción elegida
@@ -41,29 +42,40 @@ def mostrar_menu_canciones():
         else:
             print("Opción inválida. Intenta nuevamente.")
 
-# Función para listar las canciones desde un archivo XML
+# Función para listar las canciones disponibles en la carpeta
 def listar_canciones():
-    archivo_cancion = open("songs/song_1.xml", "r").read()
-    cancion = BeautifulSoup(archivo_cancion, 'xml')
+    carpeta_songs = "songs"
+    archivos = [f for f in os.listdir(carpeta_songs) if f.startswith("song") and f.endswith(".xml")]
 
-    print(f"Título: {cancion.title.text}")
-    print(f"Duración: {int(cancion.duration['seconds']) / 60} minutos")
+    if len(archivos) > 0:
+        print("Canciones disponibles:")
+        i = 0
+        while i < len(archivos):
+            print(f"{i+1}. {archivos[i]}")
+            i += 1
+    else:
+        print("No hay canciones disponibles.")
 
-    print("Artistas:")
-    for artista in cancion.artists.find_all("artist"):
-        print(f" - {artista.text}")
 
 # Función para buscar una canción por su título
 def buscar_cancion():
     titulo_busqueda = input("Introduce el título de la canción: ").strip().lower()
-    archivo_cancion = open("songs/song_1.xml", "r").read()
-    cancion = BeautifulSoup(archivo_cancion, 'xml')
+    carpeta_songs = "songs"
+    archivos = [f for f in os.listdir(carpeta_songs) if f.startswith("song") and f.endswith(".xml")]
 
-    if cancion.title.text.lower() == titulo_busqueda:
-        print(f"Canción encontrada: {cancion.title.text}")
-        print(f"Duración: {int(cancion.duration['seconds']) / 60} minutos")
-    else:
-        print("Canción no encontrada.")
+    i = 0
+    while i < len(archivos):
+        archivo_cancion = open(f"{carpeta_songs}/{archivos[i]}", "r").read()
+        cancion = BeautifulSoup(archivo_cancion, 'xml')
+
+        if cancion.title.text.lower() == titulo_busqueda:
+            print(f"Canción encontrada en archivo {archivos[i]}:")
+            print(f"Título: {cancion.title.text}")
+            print(f"Duración: {int(cancion.duration['seconds']) / 60:.2f} minutos")
+            return
+        i += 1
+
+    print("Canción no encontrada.")
 
 # Función para mostrar el menú de álbumes
 def mostrar_menu_albumes():
@@ -83,11 +95,38 @@ def mostrar_menu_albumes():
         else:
             print("Opción inválida. Intenta nuevamente.")
 
+# Función para listar los álbumes disponibles en la carpeta
 def listar_albumes():
-    print("Listando todos los álbumes... (Funcionalidad pendiente)")
+    carpeta_albums = "albums"
+    archivos = [f for f in os.listdir(carpeta_albums) if f.startswith("album") and f.endswith(".xml")]
 
+    if len(archivos) > 0:
+        print("Álbumes disponibles:")
+        i = 0
+        while i < len(archivos):
+            print(f"{i+1}. {archivos[i]}")
+            i += 1
+    else:
+        print("No hay álbumes disponibles.")
+
+# Función para buscar un álbum por su título
 def buscar_album():
-    print("Buscando álbum... (Funcionalidad pendiente)")
+    titulo_busqueda = input("Introduce el título del álbum: ").strip().lower()
+    carpeta_albums = "albums"
+    archivos = [f for f in os.listdir(carpeta_albums) if f.startswith("album") and f.endswith(".xml")]
+
+    i = 0
+    while i < len(archivos):
+        archivo_album = open(f"{carpeta_albums}/{archivos[i]}", "r").read()
+        album = BeautifulSoup(archivo_album, 'xml')
+
+        if album.title.text.lower() == titulo_busqueda:
+            print(f"Álbum encontrado en archivo {archivos[i]}:")
+            print(f"Título: {album.title.text}")
+            return
+        i += 1
+
+    print("Álbum no encontrado.")
 
 # Función para mostrar el menú de artistas
 def mostrar_menu_artistas():
@@ -107,11 +146,38 @@ def mostrar_menu_artistas():
         else:
             print("Opción inválida. Intenta nuevamente.")
 
+# Función para listar los artistas disponibles en la carpeta
 def listar_artistas():
-    print("Listando todos los artistas... (Funcionalidad pendiente)")
+    carpeta_artistas = "artists"
+    archivos = [f for f in os.listdir(carpeta_artistas) if f.startswith("artist") and f.endswith(".xml")]
 
+    if len(archivos) > 0:
+        print("Artistas disponibles:")
+        i = 0
+        while i < len(archivos):
+            print(f"{i+1}. {archivos[i]}")
+            i += 1
+    else:
+        print("No hay artistas disponibles.")
+
+# Función para buscar un artista por su nombre
 def buscar_artista():
-    print("Buscando artista... (Funcionalidad pendiente)")
+    nombre_busqueda = input("Introduce el nombre del artista: ").strip().lower()
+    carpeta_artistas = "artists"
+    archivos = [f for f in os.listdir(carpeta_artistas) if f.startswith("artist") and f.endswith(".xml")]
+
+    i = 0
+    while i < len(archivos):
+        archivo_artista = open(f"{carpeta_artistas}/{archivos[i]}", "r").read()
+        artista = BeautifulSoup(archivo_artista, 'xml')
+
+        if artista.name.text.lower() == nombre_busqueda:
+            print(f"Artista encontrado en archivo {archivos[i]}:")
+            print(f"Nombre: {artista.name.text}")
+            return
+        i += 1
+
+    print("Artista no encontrado.")
 
 # Función para mostrar el menú de géneros
 def mostrar_menu_generos():
@@ -131,11 +197,38 @@ def mostrar_menu_generos():
         else:
             print("Opción inválida. Intenta nuevamente.")
 
+# Función para listar los géneros disponibles en la carpeta
 def listar_generos():
-    print("Listando todos los géneros... (Funcionalidad pendiente)")
+    carpeta_generos = "genres"
+    archivos = [f for f in os.listdir(carpeta_generos) if f.startswith("genre") and f.endswith(".xml")]
 
+    if len(archivos) > 0:
+        print("Géneros disponibles:")
+        i = 0
+        while i < len(archivos):
+            print(f"{i+1}. {archivos[i]}")
+            i += 1
+    else:
+        print("No hay géneros disponibles.")
+
+# Función para buscar un género por su nombre
 def buscar_genero():
-    print("Buscando género... (Funcionalidad pendiente)")
+    nombre_busqueda = input("Introduce el nombre del género: ").strip().lower()
+    carpeta_generos = "genres"
+    archivos = [f for f in os.listdir(carpeta_generos) if f.startswith("genre") and f.endswith(".xml")]
+
+    i = 0
+    while i < len(archivos):
+        archivo_genero = open(f"{carpeta_generos}/{archivos[i]}", "r").read()
+        genero = BeautifulSoup(archivo_genero, 'xml')
+
+        if genero.name.text.lower() == nombre_busqueda:
+            print(f"Género encontrado en archivo {archivos[i]}:")
+            print(f"Nombre: {genero.name.text}")
+            return
+        i += 1
+
+    print("Género no encontrado.")
 
 # Información de la versión de la aplicación
 version = 0.5
